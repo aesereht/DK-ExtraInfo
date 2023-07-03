@@ -5,9 +5,10 @@ const MOD_DIR = MOD_LOG + "/"
 
 var dir = ""
 var ext_dir = "extensions/"
-var trans_dir = "" #"translation/"
-var languages = [] #["en"]
-var yaml_dir = "" #"yaml/"
+var trans_dir = "" # "translation/"
+var yaml_dir = "" # "yaml/"
+var languages = [] # ["en"]
+var elementsToUnlock = []
 var mode = 1 # 0-default / 1-Allow prestig / 2-Allow prestig+posting
 
 ################################
@@ -82,7 +83,10 @@ func modInit():
 	if yaml_dir != "":
 		var pathToModYaml : String = ModLoaderMod.get_unpacked_dir() + MOD_DIR + yaml_dir
 		Data.parseUpgradesYaml(pathToModYaml + "upgrades.yaml")
-	#GameWorld.unlockElement(DOME_UPGRADE_NAME)
+		
+	for e in elementsToUnlock:
+		GameWorld.unlockElement(e)
+		
 	#This signal can be used to test the mod
 	#StageManager.connect("level_ready", self, "testMod")
 	pass
