@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mods-unpacked/HelloWorld-ExtraInfo/hud/track_res.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=3]
+antialiased = false
+font_path = "res://gui/fonts/basis33.regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 3 )
+
+[node name="TrackRes" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+size = Vector2( 12, 3 )
+layoutWeights = Vector2( 2, 1 )
+layoutPriority = 10
+
+[node name="Res" type="Label" parent="."]
+unique_name_in_owner = true
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 65.0
+margin_bottom = 18.0
+custom_colors/font_color = Color( 1, 0.92549, 0.839216, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "123/44/44"
+align = 1
+valign = 1

@@ -1,0 +1,21 @@
+{
+	"name": "ExtraInfo",
+	"namespace": "HelloWorld",
+	"version_number": "1.0.0",
+	"description": "[AP][Util] Tracking live the total mineral ores",
+	"website_url": "",
+	"dependencies": [
+	
+	],
+	"extra": {
+		"godot": {
+			"incompatibilities": [
+				
+			],
+			"authors": ["Hello World"],
+			"compatible_mod_loader_version": ["6.0.1"],
+			"compatible_game_version": ["2.6.1"],
+			"config_defaults": {}
+		}
+	}
+}
