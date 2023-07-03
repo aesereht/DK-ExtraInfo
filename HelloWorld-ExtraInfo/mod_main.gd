@@ -5,13 +5,11 @@ const MOD_LOG = "HelloWorld-ExtraInfo"
 
 var dir = ""
 var ext_dir = ""
-var trans_dir = ""
 
 func _init(modLoader = ModLoader):
 	ModLoaderLog.info("Init", MOD_LOG)
 	dir = ModLoaderMod.get_unpacked_dir() + MOD_DIR
 	ext_dir = dir + "extensions/"
-	trans_dir = dir + "translations/"
 	get_dir_contents(ext_dir)
 
 func get_dir_contents(rootPath: String) -> Array:
@@ -41,7 +39,7 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 			directories.append(path)
 			_add_dir_contents(subDir, files, directories)
 		else:
-			print("%s" % path)
+			print("Installing: %s" % path)
 			ModLoaderMod.install_script_extension("%s" % path)
 
 		file_name = dir.get_next()
