@@ -39,8 +39,9 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 			directories.append(path)
 			_add_dir_contents(subDir, files, directories)
 		else:
-			print("Installing: %s" % path)
-			ModLoaderMod.install_script_extension("%s" % path)
+			if path.get_extension() == "gd"
+				print("Installing: %s" % path)
+				ModLoaderMod.install_script_extension("%s" % path)
 
 		file_name = dir.get_next()
 
