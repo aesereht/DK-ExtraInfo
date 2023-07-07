@@ -1,2 +1,4 @@
 # DK-ExtraInfo
-A mod for adding counter for existing ore resources in the map
+A collection of mods for dome keeper
+- RunLogger (logs run into runs.txt file + provide extended leaderboard)
+- ExtraInfo (live hud counting avalible ores on the map)
