@@ -1,20 +1,26 @@
-const MOD_LOG_PATH: = "user://logs/runs.log"
+const MOD_DIR_PATH: = "user://runs/"
 
+func _init():
+	dir_check(MOD_DIR_PATH)
 
 static func log_run(content_to_write:String, string_name:String)->void:
-	_write_to_log_file(GameWorld.runId.substr(0,8) + " " + string_name + ": " + content_to_write)
+	_write_to_log_file(string_name + ": " + content_to_write)
+	
+
 
 static func _write_to_log_file(string_to_write:String)->void :
 	var log_file: = File.new()
 
-	if not log_file.file_exists(MOD_LOG_PATH):
-		var error: = log_file.open(MOD_LOG_PATH, File.WRITE)
+	if not log_file.file_exists(MOD_DIR_PATH+"run_"+GameWorld.runId+".log"):
+		var error: = log_file.open(MOD_DIR_PATH+"run_"+GameWorld.runId+".log", File.WRITE)
 		if not error == OK:
 			assert (false, "Could not open log file, error code: %s" % error)
 		log_file.store_string("%s Created log" % _get_date_string())
+		log_file.store_string("\n" + "Version: %s" % GameWorld.version)
+		log_file.store_string("\n" + "RunID: %s" % GameWorld.runId)
 		log_file.close()
 
-	var error: = log_file.open(MOD_LOG_PATH, File.READ_WRITE)
+	var error: = log_file.open(MOD_DIR_PATH+"run_"+GameWorld.runId+".log", File.READ_WRITE)
 	if not error == OK:
 		assert (false, "Could not open log file, error code: %s" % error)
 		return 
@@ -26,3 +32,10 @@ static func _write_to_log_file(string_to_write:String)->void :
 static func _get_date_string()->String:
 	var date_time: = Time.get_datetime_dict_from_system()
 	return "%s-%02d-%02d" % [date_time.year, date_time.month, date_time.day]
+
+
+func dir_check(path) -> void:
+	var dir = Directory.new()
+	if not dir.dir_exists(path):
+		dir.make_dir(path)
+		

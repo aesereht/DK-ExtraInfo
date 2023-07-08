@@ -1,6 +1,7 @@
 extends "res://stages/title/TitleStage.gd"
 
 
+
 func beforeStart():
 	.beforeStart()
 	find_node("VersionLabel").text = "- Enable Log - " + GameWorld.getVersionPrint()
@@ -12,6 +13,7 @@ func _ready():
 	$Canvas/MainMenu/Panel/MainMenuButtons.move_child(node,0)
 	node.connect("pressed", self, "_add_a_scene_manually")
 	#Style.init(self)
+	
 	
 	
 
