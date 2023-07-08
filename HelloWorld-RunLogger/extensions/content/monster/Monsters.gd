@@ -5,10 +5,7 @@ var tempArray = []
 
 func spawnWave():
 	.spawnWave()
-	tempArray = []
-	for index in range(0, currentWave.entries.size()/2):
-		tempArray.append(currentWave.entries[index*2])
-	LoggerMod.log_run(String(tempArray) , "WavePlan")
+	LoggerMod.log_run(String(getNiceList(spawnPlan)), "WavePlan")
 	LoggerMod.log_run(String(GameWorld.boughtUpgrades), "Upgrades")
 	LoggerMod.log_run("%d" % Level.map.get_node("TileData").get_resource_cells_by_id(0).size(), "IronOre")
 	LoggerMod.log_run("%d" % Level.map.get_node("TileData").get_resource_cells_by_id(1).size(), "WaterOre")
@@ -31,3 +28,12 @@ func finishWave():
 	LoggerMod.log_run(str(Data.of("prestige.multiplier")), "CobaltMuli")
 	
 
+# Thanks to Rafa
+func getNiceList(entries:Array) -> Array:
+	var monsters := []
+	for e in entries:
+		var m : TimedSpawn = e
+		if not m.variant:
+			continue
+		monsters.append(m.variant+"_"+m.breed+"_"+String(m.time))
+	return monsters
