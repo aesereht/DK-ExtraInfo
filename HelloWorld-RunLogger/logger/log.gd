@@ -2,6 +2,8 @@ const MOD_DIR_PATH: = "user://runs/"
 
 func _init():
 	dir_check(MOD_DIR_PATH)
+	delete_file_below_size("user://runs/",260)
+	
 
 static func log_run(content_to_write:String, string_name:String)->void:
 	_write_to_log_file(string_name + ": " + content_to_write)
@@ -46,3 +48,27 @@ static func _get_time_string()->String:
 
 static func _get_date_time_string()->String:
 	return "%s_%s" % [_get_date_string(), _get_time_string()]
+
+
+
+
+func delete_file_below_size(path,size):
+	var dir = Directory.new()
+	dir.open(path)
+	dir.list_dir_begin()
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		elif not file.begins_with("."):
+			if get_file_size(path,file) < size:
+				dir.remove(file)
+	dir.list_dir_end()
+
+func get_file_size(path,file):
+	var f := File.new()
+	print(path+file)
+	f.open(path+file, File.READ)
+	var size_in_bytes: int = f.get_len()
+	f.close()
+	return size_in_bytes
