@@ -9,7 +9,7 @@ var trans_dir = "" # "translation/" # Transletion file convention (MOD_LOG.to_lo
 var yaml_dir = "" # "yaml/"
 var languages = [] # ["en"]
 var elementsToUnlock = []
-var mode = 2 # 0-default / 1-Allow prestig / 2-Allow prestig+posting
+var mode = 2
 
 ################################
 ### Edit only above fragment ###
@@ -87,7 +87,5 @@ func modInit():
 	for e in elementsToUnlock:
 		GameWorld.unlockElement(e)
 		
-	#This signal can be used to test the mod
-	#StageManager.connect("level_ready", self, "testMod")
 	pass
 

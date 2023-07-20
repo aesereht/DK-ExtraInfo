@@ -2,6 +2,7 @@ extends "res://stages/loadout/RelichuntPopup.gd"
 
 func _ready():
 	var node = OptionButton.new()
+	node.align = Button.ALIGN_CENTER
 	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer.add_child(node)
 	$PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5/VBoxContainer.move_child(node,0)
 	Style.init(self)
