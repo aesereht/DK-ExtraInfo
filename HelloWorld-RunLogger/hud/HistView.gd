@@ -1,10 +1,11 @@
 extends HudElement
 
+#Load collector functions
 var Collector = load("res://mods-unpacked/HelloWorld-RunLogger/logger/collector.gd").new()
 var bestrun
 
 func _ready():
-	#Loads although it is uning ingex name instead of runs
+
 	var runs = Collector.collectAllRuns()
 	var bestscore
 	
@@ -15,12 +16,20 @@ func _ready():
 		else:
 			if bestscore < r["total_score"]:
 				bestrun = r
-	print(bestrun)
+				
+	# To get the highest value if starting contiue runs outside range
+	if bestrun.has("cobalt_multi"):
+		($"%Viewer" as Label).text = String(
+		bestrun["cobalt_multi"][bestrun["cobalt_multi"].size()]+
+		" x "+
+		bestrun["iron_multi"][bestrun["iron_multi"].size()]
+		)
+	else:
+		pass
+	#For testing
+	#print(bestrun)
 
 func _process(delta: float) -> void:
-	print(bestrun.has("cobalt_multi"))
-	print(bestrun["cobalt_multi"].size())
-	print(Data.of("monsters.cycle"))
 	if bestrun.has("cobalt_multi") and bestrun["cobalt_multi"].size() > Data.of("monsters.cycle"):
 		($"%Viewer" as Label).text = String(
 		bestrun["cobalt_multi"][Data.of("monsters.cycle")]+
