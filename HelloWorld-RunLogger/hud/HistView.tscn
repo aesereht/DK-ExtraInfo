@@ -19,4 +19,4 @@ margin_right = 44.0
 margin_bottom = 37.0
 rect_scale = Vector2( 0.33, 0.33 )
 custom_fonts/font = ExtResource( 2 )
-text = "test"
+text = "no runs"
