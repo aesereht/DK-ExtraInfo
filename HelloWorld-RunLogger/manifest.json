@@ -1,8 +1,8 @@
 {
 	"name": "RunLogger",
 	"namespace": "HelloWorld",
-	"version_number": "1.0.0",
-	"description": "[AA][Util] A little thing to help trackin run progress. First version - testing phase. All logs will be added to modloader.log. Added leaderboard till season 4 support + multipliers",
+	"version_number": "2.0.0",
+	"description": "[AA][Util] A little thing to help trackin run progress. Its growing now it display and track more things",
 	"website_url": "",
 	"dependencies": [
 
@@ -16,7 +16,7 @@
 
 			],
 			"compatible_game_version": [
-				"2.6.1"
+				"2.6.3"
 			],
 			"compatible_mod_loader_version": [
 				"6.1.0"

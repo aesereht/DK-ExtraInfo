@@ -2,6 +2,7 @@ extends "res://stages/level/LevelStage.gd"
 
 var LoggerMod = load("res://mods-unpacked/HelloWorld-RunLogger/logger/log.gd").new()
 
+	
 func showEndingPanel(popup):
 	.showEndingPanel(popup)
 	

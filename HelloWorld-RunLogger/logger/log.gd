@@ -1,7 +1,7 @@
-const MOD_DIR_PATH: = "user://runs/"
+const RUN_DIR_PATH: = "user://runs/"
 
 func _init():
-	dir_check(MOD_DIR_PATH)
+	dir_check(RUN_DIR_PATH)
 	delete_file_below_size("user://runs/",260)
 	
 
@@ -12,9 +12,10 @@ static func log_run(content_to_write:String, string_name:String, defs:String="ru
 
 static func _write_to_log_file(string_to_write:String, defs:String)->void :
 	var log_file: = File.new()
+	var path_file:String = RUN_DIR_PATH+defs+GameWorld.runId+".log"
 
-	if not log_file.file_exists(MOD_DIR_PATH+defs+GameWorld.runId+".log"):
-		var error: = log_file.open(MOD_DIR_PATH+defs+GameWorld.runId+".log", File.WRITE)
+	if not log_file.file_exists(path_file):
+		var error: = log_file.open(path_file, File.WRITE)
 		if not error == OK:
 			assert (false, "Could not open log file, error code: %s" % error)
 		log_file.store_string("%s Created log" % _get_date_time_string())
@@ -22,7 +23,7 @@ static func _write_to_log_file(string_to_write:String, defs:String)->void :
 		log_file.store_string("\n" + "RunID: %s" % GameWorld.runId)
 		log_file.close()
 
-	var error: = log_file.open(MOD_DIR_PATH+defs+GameWorld.runId+".log", File.READ_WRITE)
+	var error: = log_file.open(path_file, File.READ_WRITE)
 	if not error == OK:
 		assert (false, "Could not open log file, error code: %s" % error)
 		return 
@@ -72,3 +73,4 @@ func get_file_size(path,file):
 	var size_in_bytes: int = f.get_len()
 	f.close()
 	return size_in_bytes
+

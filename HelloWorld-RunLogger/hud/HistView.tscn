@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://mods-unpacked/HelloWorld-RunLogger/hud/HistView.gd" type="Script" id=1]
+[ext_resource path="res://gui/fonts/FontButton.tres" type="DynamicFont" id=2]
+
+[node name="HistView" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+size = Vector2( 6, 3 )
+layoutWeights = Vector2( 2, 1 )
+layoutPriority = 1
+
+[node name="Viewer" type="Label" parent="."]
+unique_name_in_owner = true
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 44.0
+margin_bottom = 37.0
+rect_scale = Vector2( 0.33, 0.33 )
+custom_fonts/font = ExtResource( 2 )
+text = "test"

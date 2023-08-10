@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://mods-unpacked/HelloWorld-RunLogger/testing/line_chart.gd" type="Script" id=1]
+
+[node name="line_chart" type="GridContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.00012207
+columns = 3
+script = ExtResource( 1 )
+line_color = Color( 0.188235, 0.65098, 0, 1 )
+x_label = "my x label"
+y_label = "my y label"
+
+[node name="y_label" type="Label" parent="."]
+margin_right = 42.0
+margin_bottom = 1058.0
+size_flags_vertical = 1
+text = "y label"
+align = 1
+valign = 1
+
+[node name="y_ticks_container" type="VBoxContainer" parent="."]
+margin_left = 46.0
+margin_right = 46.0
+margin_bottom = 1058.0
+
+[node name="line_container" type="Control" parent="."]
+margin_left = 50.0
+margin_right = 1920.0
+margin_bottom = 1058.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="background" type="ColorRect" parent="line_container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.396078, 0.396078, 0.396078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="placeholder" type="Control" parent="."]
+margin_top = 1062.0
+margin_right = 42.0
+margin_bottom = 1062.0
+
+[node name="placeholder2" type="Control" parent="."]
+margin_left = 46.0
+margin_top = 1062.0
+margin_right = 46.0
+margin_bottom = 1062.0
+
+[node name="x_ticks_container" type="HBoxContainer" parent="."]
+margin_left = 50.0
+margin_top = 1062.0
+margin_right = 1920.0
+margin_bottom = 1062.0
+
+[node name="placeholder3" type="Control" parent="."]
+margin_top = 1066.0
+margin_right = 42.0
+margin_bottom = 1080.0
+
+[node name="placeholder4" type="Control" parent="."]
+margin_left = 46.0
+margin_top = 1066.0
+margin_right = 46.0
+margin_bottom = 1080.0
+
+[node name="x_label" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 1066.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_vertical = 1
+text = "x label"
+align = 1
+valign = 1

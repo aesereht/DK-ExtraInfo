@@ -78,6 +78,7 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 func _ready():
 	ModLoaderLog.info("Done", MOD_LOG)
 	add_to_group("mod_init")
+	StageManager.connect("level_ready", self, "addViewer")
 
 func modInit():
 	if yaml_dir != "":
@@ -89,3 +90,6 @@ func modInit():
 		
 	pass
 
+
+func addViewer():
+	var _hud = Level.hud.addHudElement({"hud": "mods-unpacked/HelloWorld-RunLogger/hud/HistView.tscn"})

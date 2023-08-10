@@ -1,7 +1,6 @@
 extends "res://content/monster/Monsters.gd"
 
 var LoggerMod = load("res://mods-unpacked/HelloWorld-RunLogger/logger/log.gd").new()
-var tempArray = []
 
 func spawnWave():
 	.spawnWave()
